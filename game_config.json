@@ -1,0 +1,67 @@
+{
+  "gameSettings": {
+    "gravity": 0.5,
+    "jumpStrength": -10,
+    "airResistance": 0.01,
+    "surfaceFriction": 0.8,
+    "player": {
+      "width": 25,
+      "height": 25,
+      "color": "#00bfff",
+      "groundSpeed": 4,
+      "airSpeed": 2,
+      "flightForce": -2.0,
+      "flightForceReduction": 0.005,
+      "maxUpwardVelocity": -8,
+      "maxFlightHeight": 160
+    },
+    "initialLives": 3,
+    "bonusItemScore": 15,
+    "platformColor": "#3cb371",
+    "obstacleColor": "#ff6347",
+    "bonusItemColor": "#ffd700",
+    "bonusItemRadius": 12,
+    "portalColor": "#8a2be2"
+  },
+  "levels": [
+    {
+      "name": "Level 1",
+      "platforms": [
+        { "x": 0, "y": 445, "width": 200, "height": 30 },
+        { "x": 300, "y": 350, "width": 150, "height": 30 },
+        { "x": 550, "y": 300, "width": 150, "height": 30 },
+        { "x": 0, "y": 465, "width": 640, "height": 35 }
+      ],
+      "enemies": [
+        { "type": "spike", "x": 350, "y": 320, "width": 30, "height": 30 }
+      ],
+      "bonuses": [
+        { "type": "coin", "x": 100, "y": 415 },
+        { "type": "gem", "x": 300, "y": 325 },
+        { "type": "coin", "x": 580, "y": 275 },
+        { "type": "gem", "x": 150, "y": 420 }
+      ],
+      "portal": { "x": 580, "y": 250, "width": 30, "height": 40 },
+      "playerStart": { "x": 50, "y": 415 }
+    },
+    {
+      "name": "Level 2",
+      "platforms": [
+        { "x": 50, "y": 400, "width": 150, "height": 30 },
+        { "x": 300, "y": 350, "width": 150, "height": 30 },
+        { "x": 450, "y": 300, "width": 150, "height": 30 },
+        { "x": 0, "y": 465, "width": 640, "height": 35 }
+      ],
+      "enemies": [
+        { "type": "spike", "x": 350, "y": 320, "width": 30, "height": 30 }
+      ],
+      "bonuses": [
+        { "type": "coin", "x": 100, "y": 370 },
+        { "type": "gem", "x": 350, "y": 325 },
+        { "type": "coin", "x": 500, "y": 275 }
+      ],
+      "portal": { "x": 550, "y": 250, "width": 30, "height": 40 },
+      "playerStart": { "x": 70, "y": 365 }
+    }
+  ]
+}

@@ -1,39 +1,120 @@
+/* Base styles for the body */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background: linear-gradient(
+    135deg,
+    #330867,
+    #30cfd3
+  ); /* Modern gradient background */
+  color: #f0f0f0; /* Light, modern text color */
   margin: 0;
+  font-family: "Arial", sans-serif; /* Clean, readable font */
+  overflow: hidden; /* Prevent scrollbars */
 }
 
+/* Styling for the main container */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px;
+  border-radius: 15px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Semi-transparent dark background for the container */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* More pronounced shadow */
 }
 
+/* Styling for the game canvas */
 #gameCanvas {
-  border: 1px solid #000;
-  background-color: #ddd;
+  border: 2px solid #555; /* Subtle border */
+  background-color: #111; /* Dark background for the canvas */
+  border-radius: 10px; /* Rounded corners for the canvas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  transition: filter 0.3s ease; /* Transition for potential effects */
 }
 
+#gameCanvas.blurred {
+  filter: blur(5px);
+}
+
+/* Styling for the user interface container */
 .ui {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 
-.ui > div {
-  margin-bottom: 10px;
+/* Styling for heads-up display elements (score, lives) */
+.hud {
+  font-size: 24px;
+  font-weight: bold;
+  color: #eee;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for better readability */
+}
+
+/* Styling for game screens (menu, pause, game over) */
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Dark, semi-transparent background for screens */
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Shadow for screen */
+  text-align: center;
+  z-index: 10; /* Ensure screens appear above the canvas */
 }
 
 .hidden {
-  display: none;
+  display: none !important; /* Ensure proper hiding */
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+/* Styling for buttons */
+.action-button {
+  padding: 15px 30px;
+  font-size: 20px;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #504bfd; /* Vibrant button color */
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Subtle button shadow */
+}
+
+.action-button:hover {
+  background-color: #6a65ff; /* Slightly lighter on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+/* Styling for the main heading */
+h1 {
+  color: #eee;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for heading */
+}
+
+/* Styling for the final score display */
+#finalScore {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fdd835; /* Gold color for final score */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for final score */
 }

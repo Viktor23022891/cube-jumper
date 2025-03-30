@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Configuration</title>
+    <link rel="stylesheet" href="config.css" />
+  </head>
+  <body>
+    <h1>Game Configuration</h1>
+
+    <div class="config-section">
+      <h2>General Settings</h2>
+      <label for="gravity">Gravity:</label>
+      <input type="number" id="gravity" name="gravity" step="0.01" />
+
+      <label for="jumpStrength">Jump Strength:</label>
+      <input type="number" id="jumpStrength" name="jumpStrength" />
+
+      <label for="airResistance">Air Resistance:</label>
+      <input
+        type="number"
+        id="airResistance"
+        name="airResistance"
+        step="0.001"
+      />
+
+      <label for="surfaceFriction">Surface Friction:</label>
+      <input
+        type="number"
+        id="surfaceFriction"
+        name="surfaceFriction"
+        step="0.01"
+      />
+
+      <h3>Player Settings</h3>
+      <label for="playerWidth">Width:</label>
+      <input type="number" id="playerWidth" name="playerWidth" />
+      <label for="playerHeight">Height:</label>
+      <input type="number" id="playerHeight" name="playerHeight" />
+      <label for="playerColor">Color:</label>
+      <input type="text" id="playerColor" name="playerColor" />
+      <label for="playerGroundSpeed">Ground Speed:</label>
+      <input type="number" id="playerGroundSpeed" name="playerGroundSpeed" />
+      <label for="playerAirSpeed">Air Speed:</label>
+      <input type="number" id="playerAirSpeed" name="playerAirSpeed" />
+      <label for="playerFlightForce">Flight Force:</label>
+      <input
+        type="number"
+        id="playerFlightForce"
+        name="playerFlightForce"
+        step="0.001"
+      />
+      <label for="playerFlightForceReduction">Flight Force Reduction:</label>
+      <input
+        type="number"
+        id="playerFlightForceReduction"
+        name="playerFlightForceReduction"
+        step="0.001"
+      />
+      <label for="playerMaxUpwardVelocity">Max Upward Velocity:</label>
+      <input
+        type="number"
+        id="playerMaxUpwardVelocity"
+        name="playerMaxUpwardVelocity"
+      />
+      <label for="playerMaxFlightHeight">Max Flight Height:</label>
+      <input
+        type="number"
+        id="playerMaxFlightHeight"
+        name="playerMaxFlightHeight"
+      />
+
+      <label for="initialLives">Initial Lives:</label>
+      <input type="number" id="initialLives" name="initialLives" />
+      <label for="bonusItemScore">Bonus Item Score:</label>
+      <input type="number" id="bonusItemScore" name="bonusItemScore" />
+      <label for="platformColor">Platform Color:</label>
+      <input type="text" id="platformColor" name="platformColor" />
+      <label for="obstacleColor">Obstacle Color:</label>
+      <input type="text" id="obstacleColor" name="obstacleColor" />
+      <label for="bonusItemColor">Bonus Item Color:</label>
+      <input type="text" id="bonusItemColor" name="bonusItemColor" />
+      <label for="bonusItemRadius">Bonus Item Radius:</label>
+      <input type="number" id="bonusItemRadius" name="bonusItemRadius" />
+      <label for="portalColor">Portal Color:</label>
+      <input type="text" id="portalColor" name="portalColor" />
+    </div>
+
+    <div id="levelEditor" class="config-section">
+      <h2>Level Configuration</h2>
+    </div>
+
+    <button onclick="saveConfig()">Save Configuration</button>
+    <button onclick="loadConfig()">Load Configuration</button>
+
+    <script src="config.js"></script>
+  </body>
+</html>

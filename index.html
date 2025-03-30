@@ -3,34 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cube Jumper</title>
+    <title>Cube Jumper: Next Dimension</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <canvas id="gameCanvas" width="640" height="480"></canvas>
       <div class="ui">
-        <div id="score">Score: 0</div>
-        <div id="lives">Lives: 3</div>
-        <div id="menu" class="hidden">
+        <div id="score" class="hud">Score: 0</div>
+        <div id="lives" class="hud">Lives: 3</div>
+        <div id="menu" class="screen">
           <h1>Cube Jumper</h1>
-          <button id="startButton">Start Game</button>
-          <button id="restartButton" class="hidden">Restart Game</button>
+          <button id="startButton" class="action-button">Start Game</button>
+          <button id="restartButton" class="action-button hidden">
+            Restart Game
+          </button>
         </div>
-        <div id="pauseScreen" class="hidden">
+        <div id="pauseScreen" class="screen hidden">
           <h1>Paused</h1>
-          <button id="resumeButton">Resume</button>
-          <button id="restartLevelButton">Restart Level</button>
-          <button id="mainMenuButton">Main Menu</button>
+          <button id="resumeButton" class="action-button">Resume</button>
+          <button id="restartLevelButton" class="action-button">
+            Restart Level
+          </button>
+          <button id="mainMenuButton" class="action-button">Main Menu</button>
         </div>
-        <div id="gameOverScreen" class="hidden">
-          <h1>Game Over</h1>
+        <div id="gameOverScreen" class="screen hidden">
+          <h1>You Won!</h1>
           <div id="finalScore">Final Score: 0</div>
-          <button id="playAgainButton">Play Again</button>
-          <button id="backToMenuButton">Main Menu</button>
+          <button id="playAgainButton" class="action-button">Play Again</button>
+          <button id="backToMenuButton" class="action-button">Main Menu</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
