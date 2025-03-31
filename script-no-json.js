@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 import { levels } from "./levels.js";
 

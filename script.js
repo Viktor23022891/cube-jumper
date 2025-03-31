@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 // Importing the levels data (will be removed after JSON implementation)
 // import { levels } from "./levels.js";
