@@ -1,0 +1,52 @@
+[
+  {
+    "platforms": [
+      { "x": 0, "y": 445, "width": 200, "height": 30 },
+      { "x": 300, "y": 350, "width": 150, "height": 30 },
+      { "x": 550, "y": 300, "width": 150, "height": 30 },
+      { "x": 0, "y": 445, "width": 640, "height": 35 }
+    ],
+    "obstacles": [{ "x": 350, "y": 320, "width": 30, "height": 30 }],
+    "bonusItems": [
+      { "x": 100, "y": 415 },
+      { "x": 300, "y": 325 },
+      { "x": 600, "y": 275 },
+      { "x": 150, "y": 325 }
+    ],
+    "portal": {
+      "x": 600,
+      "y": 250,
+      "width": 30,
+      "height": 40
+    },
+    "playerStart": {
+      "x": 50,
+      "y": 415
+    }
+  },
+  {
+    "platforms": [
+      { "x": 50, "y": 400, "width": 150, "height": 30 },
+      { "x": 300, "y": 350, "width": 150, "height": 30 },
+      { "x": 550, "y": 300, "width": 150, "height": 30 },
+      { "x": 0, "y": 445, "width": 640, "height": 35 }
+    ],
+    "obstacles": [{ "x": 350, "y": 320, "width": 30, "height": 30 }],
+    "bonusItems": [
+      { "x": 100, "y": 370 },
+      { "x": 300, "y": 325 },
+      { "x": 600, "y": 275 },
+      { "x": 150, "y": 325 }
+    ],
+    "portal": {
+      "x": 600,
+      "y": 250,
+      "width": 30,
+      "height": 40
+    },
+    "playerStart": {
+      "x": 70,
+      "y": 365
+    }
+  }
+]

@@ -1,7 +1,6 @@
 "use strict";
 
-// Importing the levels data (will be removed after JSON implementation)
-// import { levels } from "./levels.js";
+import { levels } from "./levels.js";
 
 // DOM elements IDs
 const CANVAS_ID = "gameCanvas"; // ID of the canvas element where the game is rendered
@@ -58,7 +57,7 @@ const restartLevelButton = document.getElementById(RESTART_LEVEL_BUTTON_ID); // 
 const mainMenuButton = document.getElementById(MAIN_MENU_BUTTON_ID); // Button to return to the main menu
 const gameOverScreen = document.getElementById(GAME_OVER_SCREEN_ID); // The game over screen element
 const finalScoreDisplay = document.getElementById(FINAL_SCORE_DISPLAY_ID); // Element to display the final score
-const playAgainButton = document.getElementById(PLAY_AGAIN_BUTTON_ID); // Button to play the game again after game over
+const playAgainButton = document.getElementById(PLAY_AGAIN_BUTTON_ID); // Button to play again after game over
 const backToMenuButton = document.getElementById(BACK_TO_MENU_BUTTON_ID); // Button to go back to the main menu after game over
 
 // Base class for all game objects - Provides a common structure for objects in the game
@@ -314,62 +313,9 @@ class Game {
     this.gameActive = false; // Flag indicating if the game is currently active
     this.isPaused = false; // Flag indicating if the game is paused
     this.keys = {}; // Object to track which keys are currently pressed
-    this.levelsData = null; // Will hold the level data loaded from JSON
+    this.levels = levels; // Array of level data loaded from levels.js
     this.frameCount = 0; // Counter for the number of frames rendered, used for animations
   }
-
-  /**
-   * Loads the levels data from the "levels.json" file.
-   *
-   * The "levels.json" file should be an array of level objects. Each level object
-   * defines the layout and elements of a single game level.
-   *
-   * Example structure of "levels.json":
-   * [
-   * { // Represents a single level
-   * "platforms": [ // Array of platform objects
-   * { "x": number, "y": number, "width": number, "height": number },
-   * // ... more platforms ...
-   * ],
-   * "obstacles": [ // Array of obstacle objects
-   * { "x": number, "y": number, "width": number, "height": number },
-   * // ... more obstacles ...
-   * ],
-   * "bonusItems": [ // Array of bonus item objects
-   * { "x": number, "y": number },
-   * // ... more bonus items ...
-   * ],
-   * "portal": { // Object defining the portal
-   * "x": number,
-   * "y": number,
-   * "width": number,
-   * "height": number
-   * },
-   * "playerStart": { // Object defining the player's starting position
-   * "x": number,
-   * "y": number
-   * }
-   * },
-   * // ... more levels ...
-   * ]
-   *
-   * This method uses the 'fetch' API to asynchronously load the JSON file and
-   * then parses the JSON data into a JavaScript object stored in 'this.levelsData'.
-   * JSON (JavaScript Object Notation) is a lightweight data-interchange format
-   * that is easy for humans to read and write and easy for machines to parse and generate.
-   */
-  loadLevelsJSON = async () => {
-    try {
-      const response = await fetch("levels.json"); // Using fetch to load the JSON file
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      this.levelsData = await response.json(); // Parsing the JSON response into a JavaScript object
-    } catch (error) {
-      console.error("Could not load levels:", error);
-      // Could add error handling here, like displaying a message to the user
-    }
-  };
 
   // Reset the game state to its initial values
   resetGameState = () => {
@@ -384,16 +330,10 @@ class Game {
   };
 
   // Start the game
-  startGame = async () => {
-    await this.loadLevelsJSON(); // First, load the levels data
-    if (this.levelsData) {
-      this.resetGameState(); // Reset the game state
-      this.loadLevel(this.level - 1); // Load the first level
-      this.gameLoop(); // Start the game loop
-    } else {
-      console.error("Game cannot start: Levels data failed to load.");
-      // Could display an error message on the screen
-    }
+  startGame = () => {
+    this.resetGameState(); // Reset the game state
+    this.loadLevel(this.level - 1); // Load the first level
+    this.gameLoop(); // Start the game loop
   };
 
   // Restart the entire game from the beginning
@@ -418,11 +358,11 @@ class Game {
 
   // Load a specific level from the levels data
   loadLevel = (levelIndex) => {
-    if (!this.levelsData || !this.levelsData[levelIndex]) {
+    const levelData = this.levels[levelIndex];
+    if (!levelData) {
       this.gameOver(); // If there's no more levels, trigger game over
       return;
     }
-    const levelData = this.levelsData[levelIndex];
     // Create platform objects from the level data
     this.platforms = levelData.platforms.map(
       (p) => new Platform(p.x, p.y, p.width, p.height)
